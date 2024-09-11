@@ -11,7 +11,7 @@ class PostController extends Controller
         $posts = Post::all();
         return view('post.index', compact('posts'));
     }
-    
+
     public function create() {
         return view('post.create');
     }
@@ -22,6 +22,8 @@ class PostController extends Controller
             'title' => 'required|max:20',
             'body' => 'required|max:400'
         ]);
+
+        $validated['user_id'] = auth()->id();
 
         $post = Post::create($validated);
 
