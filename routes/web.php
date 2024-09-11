@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('post/create', [PostController::class, 'create']);
 Route::post('post/create', [PostController::class, 'store'])->name('post.store');
+Route::get('post', [PostController::class, 'index']);
 
 Route::get('/test', [TestController::class, 'test'])->name('test');
 
